@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Sign Up Page</title>
+</head>
+  
+  <style>
+        body {
+            color: #333;
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            margin-left:50px;
+            margin-top:50px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218c54;
+        }
+    </style>
+
+<body>
+	
+    <form action="SignUpPageProcess.jsp" onsubmit="return checkPassword()">
+        <table>
+            <tr>
+                <td>Enter Email Id</td>
+                <td><input type="text" name="email" id="email"></td>
+            </tr>
+            <tr>
+                <td>Enter Password</td>
+                <td><input type="password" name="psw1" id="pass1"></td>
+            </tr>
+            <tr>
+                <td>Re-Enter Password</td>
+                <td><input type="password" name="psw2" id="pass2"></td>
+            </tr>
+            <tr>
+                <td>Enter FirstName</td>
+                <td><input type="text" name="fname" id="fname"></td>
+            </tr>
+            <tr>
+                <td>Enter LastName</td>
+                <td><input type="text" name="lname" id="lname"></td>
+            </tr>
+            <tr>
+                <td>Enter Mobile No</td>
+                <td><input type="text" name="mob" id="mob"></td>
+            </tr>
+            <tr>
+                <td>Enter Address</td>
+                <td><input type="text" name="adres" id="adres"></td>
+            </tr>
+            
+            <tr>
+				<td>Select Security Questions</td>
+				<td><select name="questions">
+					<option value="What is your pet name">What is your pet name</option>
+					<option value="Who is your favourite actor">Who is your favourite actor</option>
+					<option value="what is your 10th School name">what is your 10th School name</option>
+					<option value="what is your best Friend name">what is your best Friend name</option>
+					<option value="what is your GrandFaterh name">what is your GrandFaterh name</option>
+				</select></td>
+			</tr>
+			
+			<tr>
+			   <td>Enter Answer</td>
+			   <td><input type="text" name="answer"></td>
+			</tr>
+            
+        </table>
+        <input type="submit" value="Sign Up" style="color: white; background-color: black;">
+    </form>
+
+    <script>
+        function checkPassword() {
+            var password1 = document.getElementById("pass1").value;
+            var password2 = document.getElementById("pass2").value;
+            var email = document.getElementById("email").value;
+            var numb = document.getElementById("mob").value;
+            var password = document.getElementById("pass1").value;
+
+            var emailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var numpattern = /^[0-9]+$/;
+            var passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*|]).{8,}$/;
+
+            if (password1 !== password2) {
+                window.alert("Both Passwords Should be the Same!");
+                return false;
+            }
+            
+            if (email.length === 0 || numb.length === 0 || password.length === 0) {
+                window.alert("Email, number, and password should not be empty.");
+                return false;
+            }
+
+            if (!email.match(emailpattern)) {
+                window.alert("Email is not valid");
+                return false;
+            }
+
+            if (!numpattern.test(numb)) {
+                window.alert("Number cannot contain alphabets");
+                return false;
+            }
+            
+            if(!passwordPattern.test(password1)){
+            	
+            	window.alert("Password must contain one alphabet , length must be greater then or equal to 8 , must contain number  and small letters");
+            	return false;
+            }
+
+            if (!password.match(passwordPattern)) {
+                window.alert("Password is not valid");
+                return false;
+            }
+            
+            return true; // Form submission will proceed if all checks pass.
+        }
+    </script>
+</body>
+</html>
