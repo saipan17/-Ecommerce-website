@@ -1,0 +1,48 @@
+
+// The database used is Oracle with for database connectivity hibernate is used.
+//create all tables and insert records in it because the data is retrived from the databse like image name , price 
+image etc.
+//login by any enter any user information.
+
+
+CREATE TABLE Users (
+    EMAILID VARCHAR(100) PRIMARY KEY,
+    ADDRESS VARCHAR(100),
+    FNAME VARCHAR(50),
+    LNAME VARCHAR(50),
+    PASSWORD VARCHAR(100),
+    ANSWERS VARCHAR(100),
+    MOB VARCHAR(20),
+    QUESTIONS VARCHAR(100)
+);
+
+BEGIN
+INSERT INTO Users VALUES('msaipanmulook@gmail.com', 'Pune', 'Saipan', 'Mulla', 'Saipan17@', 'NVM', '9325547157', 'What is your pet name');
+INSERT INTO Users VALUES('aman@gmail.com', 'Nagpur', 'Aman', 'Bhandekar', 'Aman12345@', 'Abishek', '7865432131', 'what is your best Friend name');
+INSERT INTO Users VALUES('naryan123@gmail.com', 'England', 'naryan', 'jagtap', 'Naryan1234@', 'karna', '9876543567', 'Who is your favourite actor');
+INSERT INTO Users VALUES('abhi@gmail.com', 'England', 'Virat', 'Kohli', 'Abhi1234@', 'dog', '876543218', 'What is your pet name');
+END;
+
+select * from users;
+
+CREATE TABLE Products (
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(100),
+    CATEGORY VARCHAR(50),
+    PRICE DECIMAL(10, 2),
+    IMAGE VARCHAR(255)
+);
+
+BEGIN
+INSERT INTO Products VALUES(1, 'Apple 15 Pro', 'Mobile', 120.00, 'product5.jpeg');
+INSERT INTO Products VALUES(2, 'AMD Ryzen 3', 'Laptop', 69.00, 'product6.jpg');
+INSERT INTO Products VALUES(3, 'Fogg', 'Perfume', 10.00, 'product7.jpg');
+INSERT INTO Products VALUES(4, 'Rolex Watch', 'Watch', 20.00, 'ladis-bag.jpg');
+INSERT INTO Products VALUES(5, 'Wireless HP Mouse', 'Mouse', 20.00, 'product4.png');
+INSERT INTO Products VALUES(6, 'Nike Shoes', 'Shoes', 30.00, 'product3.png');
+INSERT INTO Products VALUES(7, 'Fire boult Smart Watch', 'Men watch', 25.00, 'product1.jpg');
+INSERT INTO Products VALUES(8, 'Never Settle Buds', 'Buds', 30.00, 'product2.jpg');
+END;
+
+select * from products;
+
