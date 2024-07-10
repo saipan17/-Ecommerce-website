@@ -12,3 +12,4 @@ The IDE used is Eclipse for importing the project you need to import Maven Exist
 ------->  File->Import->Maven->Existing Maven Project->Browse Directory->Finish.
 
 Before run the project you also need to create database and its tables the existing data from the tables beacuse if images name are get wrong spelled then it will not display it in the UI.
+Best of Luck !!
